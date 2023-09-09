@@ -8,4 +8,14 @@
 import Foundation
 import SwiftUI
 
-class HomeViewModel: ObservableObject {}
+class HomeViewModel: ObservableObject {
+    
+    
+}
+
+
+extension HomeViewModel {
+    func goToAddNewTodoView()-> some View {
+        HomeModelRouter.makeAddTodoView()
+    }
+}

@@ -18,6 +18,12 @@ struct SignUpView: View {
     
     var currentViewId = UUID()
     
+    
+    func handleCreateNewUser() {
+        viewModel.createNewUser(username, email, password)
+    }
+    
+    
     var body: some View {
         NavigationView{
             ScrollView{
@@ -76,7 +82,7 @@ struct SignUpView: View {
                                 .frame(height: 40)
                                 .padding(4)
                                 .border(password == passwordValidate ? Color.white.opacity(0)  : .red)
-                                
+                            
                         }
                         .background(Color.gray.opacity(0.1))
                         .cornerRadius(4)
@@ -88,7 +94,9 @@ struct SignUpView: View {
                         VStack {
                             
                             Button {
-                                print(username, password, email)
+                                
+                                print("botao")
+                                handleCreateNewUser()
                             } label: {
                                 Text("Cadastrar")
                                     .padding([.top,.bottom], 12)
@@ -103,7 +111,7 @@ struct SignUpView: View {
                             )
                         }
                         .padding(.top, 22)
-                
+                        
                         linking
                     }
                     .padding()
@@ -114,7 +122,7 @@ struct SignUpView: View {
         .navigationBarHidden(true)
         .id(currentViewId)
     }
-        
+    
 }
 
 
