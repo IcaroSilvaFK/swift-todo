@@ -37,6 +37,7 @@ class SignUpViewModel: ObservableObject {
                     let json = try JSONSerialization.jsonObject(with: data, options:[])
                     // TODO add method from persists user
                     print(json)
+                    UserDefaults.standard.set(json, forKey: "@currentUser")
                 }catch {
                     print(error)
                 }
