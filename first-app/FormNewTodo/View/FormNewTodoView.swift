@@ -12,15 +12,18 @@ struct FormNewTodoView: View {
     @ObservedObject var viewModel: FormNewTodoViewModel
     
     @State var todo: String = "Digite aqui"
+    @State var title:String = ""
     @State var isNotFirstTouch = false
     @State var isFinalized = false
     @State var action: Int? = 0
+    
     
     func sendTodo() {
         viewModel.createNewTodo(todo: todo, isCompleted: isFinalized)
         
             todo = ""
             isFinalized = false
+              
         
     }
     
@@ -62,6 +65,25 @@ struct FormNewTodoView: View {
                             }
                             .tag(false)
                         }
+                    }
+                    .padding()
+                    
+                    VStack(alignment: .leading, spacing: 12) {
+                        Text("Título")
+                            .font(Font.system(size: 18).bold())
+                            .foregroundColor(Color.gray)
+                        VStack {
+                            TextField("Digite o titulo aqui....", text: $title)
+                                .padding(8)
+                              
+                        }
+                        .cornerRadius(4)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 4)
+                                .stroke(Color.gray.opacity(0.3), lineWidth: 1)
+                        )
+                        
+                        
                     }
                     .padding()
                     
@@ -148,6 +170,11 @@ extension FormNewTodoView {
     }
 }
 
-#Preview {
-    FormNewTodoView(viewModel: FormNewTodoViewModel())
+
+struct FormNewTodoView_Previews: PreviewProvider {
+    static var previews: some View {
+        FormNewTodoView(viewModel: FormNewTodoViewModel())
+    }
 }
+
+

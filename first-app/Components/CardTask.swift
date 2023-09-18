@@ -42,10 +42,12 @@ struct CardTask: View {
     }
 }
 
-#Preview {
-    CardTask(
-        isCompleted: false, task: "Preview Content", action: {
-            print("a")
-        }
-    )
+struct CardTask_Previews: PreviewProvider {
+    static var previews: some View {
+        CardTask(
+            isCompleted: false, task: "Preview Content", action: {
+                print("a")
+            }
+        )
+    }
 }

@@ -177,7 +177,6 @@ extension LoginView {
                         EmptyView()
                     })
                    .navigationBarBackButtonHidden()
-                 
                 Button("Realize seu castro"){
                     self.action = 1
                 }

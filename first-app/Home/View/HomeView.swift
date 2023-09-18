@@ -10,7 +10,8 @@ import SwiftUI
 struct HomeView: View {
     
     @ObservedObject var viewModel: HomeViewModel
-    
+    @State var action: Int? = 0
+
     var tasks = [
         (
             isCompleted: false,
@@ -107,15 +108,31 @@ struct HomeView: View {
                         
                     }
                     ForEach(tasks, id: \.self.task) { task in
-                        CardTask(isCompleted: task.isCompleted, task: task.task, action: {
-                            print(task.task)
-                        })
-                        .padding(.top, 4)
+                        
+                        ZStack {
+                            NavigationLink(
+                                destination: viewModel.goToTaskDetails(Int.random(in: 1...40)),
+                                tag:1,
+                                selection: $action,
+                                label:{
+                                    EmptyView()
+                                }
+                            )
+                            .navigationBarBackButtonHidden()
+                            
+                            CardTask(isCompleted: task.isCompleted, task: task.task, action: {
+                                action = 1
+                            })
+                            .padding(.top, 4)
+                        }
                     }
+             
                 }
                 .padding()
+                .padding(.bottom, 12)
             }
             .ignoresSafeArea()
+           
         }
          .navigationBarHidden(true)
     }

@@ -14,4 +14,8 @@ struct HomeModelRouter {
     static func makeAddTodoView()-> some View {
         FormNewTodoView(viewModel: FormNewTodoViewModel())
     }
+    
+    static func makeTaskDetailsView(taskId: Int)-> some View {
+        TaskDetails(taskId: taskId, viewModel: TaskDetailsViewModel())
+    }
 }

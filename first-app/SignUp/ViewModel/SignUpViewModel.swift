@@ -10,6 +10,8 @@ import SwiftUI
 
 class SignUpViewModel: ObservableObject {
     
+    @Published var action: Int? = 0
+    
     func createNewUser(_ username: String, _ email: String,_  password: String){
         
         print("Request")
@@ -38,6 +40,8 @@ class SignUpViewModel: ObservableObject {
                     // TODO add method from persists user
                     print(json)
                     UserDefaults.standard.set(json, forKey: "@currentUser")
+                    
+                    self.action = 1
                 }catch {
                     print(error)
                 }

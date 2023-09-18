@@ -43,14 +43,17 @@ struct CardNavigateToCategory: View {
     }
 }
 
-#Preview {
-    CardNavigateToCategory(
-        title: "Concluidas",
-        icon: "checkmark.diamond.fill",
-        titleColor: Color.white,
-        background: Color.green,
-        action: {
-            print("a")
-        }
-    )
+
+struct CardNavigateToCategory_Previews: PreviewProvider {
+    static var previews: some View {
+        CardNavigateToCategory(
+            title: "Concluidas",
+            icon: "checkmark.diamond.fill",
+            titleColor: Color.white,
+            background: Color.green,
+            action: {
+                print("a")
+            }
+        )
+    }
 }

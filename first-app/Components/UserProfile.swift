@@ -82,8 +82,11 @@ extension UserProfile {
     }
 }
 
-#Preview {
-    UserProfile(content:{
-        Text("a")
-    })
+
+struct UserProfile_Previews: PreviewProvider {
+    static var previews: some View {
+        UserProfile(content:{
+            Text("a")
+        })
+    }
 }

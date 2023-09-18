@@ -18,4 +18,8 @@ extension HomeViewModel {
     func goToAddNewTodoView()-> some View {
         HomeModelRouter.makeAddTodoView()
     }
+    
+    func goToTaskDetails(_ taskId: Int)-> some View {
+        HomeModelRouter.makeTaskDetailsView(taskId: taskId)
+    }
 }
